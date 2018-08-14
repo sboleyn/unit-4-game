@@ -1,0 +1,9 @@
+body{
+    background-image: url(../images/background.jpg);
+}
+
+.img-thumbnail{
+    width: 100px;
+    height: 144px;
+    background-color: #993333;
+}
