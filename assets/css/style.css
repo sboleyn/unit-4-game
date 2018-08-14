@@ -1,9 +1,30 @@
 body{
     background-image: url(../images/background.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    font-family: 'Chewy', cursive; 
 }
 
 .img-thumbnail{
     width: 100px;
     height: 144px;
-    background-color: #993333;
+    background-color: transparent;
+}
+
+.img-thumbnail:hover{
+    background-color: #66cccc;
+}
+
+#chibiZeldaTxt{
+    font-family: 'Chewy', cursive; 
+    color: rgb(155, 135, 18);
+    font-size: 3em;
+}
+
+#fightTxt{
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.btn-danger{
+    font-family: 'Luckiest Guy', cursive;
 }
