@@ -17,11 +17,15 @@
         
         $(".character").not(this).appendTo($("#enemies"));
 
-        $(".character").not(this).css("backgroundColor", "red");        
+        // $(".character").not(this).css("backgroundColor", "red");        
 
         $(".character").not(this).addClass("defenders");  
+
+        $(".defenders").css("backgroundColor", "red");       
+
+        $(".defenders").unbind("click");
         
-        $(".defenders").on("click", function() {
+        $(".defenders").off('click').on("click", function() {
 
             if (isDefenderChosen){
                 return false;

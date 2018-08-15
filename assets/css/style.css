@@ -24,7 +24,7 @@ body{
 }
 
 .defenders:hover{
-    background-color: gray;
+    background-color: gray !important;
 }
 
 #chibiZeldaTxt{
