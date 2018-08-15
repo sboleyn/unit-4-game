@@ -48,13 +48,17 @@
             var heroHealth = $('.chosenHero').val();
             var attack = 0;
             var heroHit = $('.chosenHero').attr('hit');
-            var defenderHit = $('.theDefender').attr('hit')
+            var defenderHit = $('.theDefender').attr('hit');
 
             $(".btn").on("click", function(){
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
                 console.log(attack);
-                $('.container').append('hello');
+                if (heroHealth > 0) {
+                    heroHealth = heroHealth - defenderHit;
+                    $('#results').html('<h4>' + 'You attacked ' + $('.theDefender').attr('name') + " for " + attack + " damage.</h3>");
+                    $('#results').append($('.theDefender').attr('name') + " attacked you back for " + defenderHit+ " damange.");
+                    };
             })
         })
 
