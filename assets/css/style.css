@@ -40,3 +40,7 @@ body{
 .btn-danger{
     font-family: 'Luckiest Guy', cursive;
 }
+
+button{
+    background-color: transparent;
+}

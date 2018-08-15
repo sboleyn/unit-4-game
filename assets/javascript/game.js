@@ -22,10 +22,8 @@
         $(".character").not(this).addClass("defenders");  
 
         $(".defenders").css("backgroundColor", "red");       
-
-        $(".defenders").unbind("click");
         
-        $(".defenders").off('click').on("click", function() {
+        $(".defenders").on("click", function() {
 
             if (isDefenderChosen){
                 return false;
@@ -36,7 +34,19 @@
             isDefenderChosen = true;
             
             $(this).appendTo($("#defender"));
+
+            $(this).removeClass("defenders");
+
+            $(this).addClass("theDefender"); 
+
+            $(".btn").on("click", function(){
+                var defHealth = $('.theDefender').val();
+                console.log(defHealth);
+            })
         })
+
+
+
     });
 
     
