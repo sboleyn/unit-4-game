@@ -54,6 +54,7 @@
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
                 console.log(attack);
+                $('.container').append('hello');
             })
         })
 
