@@ -4,6 +4,7 @@
 
     function initializeGame (){
         isFighterChosen = false;
+        isDefenderChosen = false;
     }
 
     $(".character").on("click", function() {
@@ -13,6 +14,9 @@
         }
     
         $(this).css("backgroundColor", "#66cccc");
+
+        $(this).addClass("chosenHero");
+
         isFighterChosen = true;
         
         $(".character").not(this).appendTo($("#enemies"));
@@ -39,9 +43,17 @@
 
             $(this).addClass("theDefender"); 
 
+
+            var defHealth = $('.theDefender').val();
+            var heroHealth = $('.chosenHero').val();
+            var attack = 0;
+            var heroHit = $('.chosenHero').attr('hit');
+            var defenderHit = $('.theDefender').attr('hit')
+
             $(".btn").on("click", function(){
-                var defHealth = $('.theDefender').val();
-                console.log(defHealth);
+                heroHit = parseInt(heroHit);
+                attack += heroHit;
+                console.log(attack);
             })
         })
 
