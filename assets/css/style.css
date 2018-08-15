@@ -5,14 +5,26 @@ body{
     font-family: 'Chewy', cursive; 
 }
 
+.character{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
 .img-thumbnail{
     width: 100px;
     height: 144px;
-    background-color: transparent;
+    background-color: white;
 }
 
-.img-thumbnail:hover{
+.character:hover{
     background-color: #66cccc;
+}
+
+.defenders:hover{
+    background-color: gray;
 }
 
 #chibiZeldaTxt{
