@@ -64,7 +64,7 @@ $(document).ready(function() {
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
 
-                //Hero and defender
+                //Hero and defender are alive, there are defenders
 
                 if (heroHealth > 0 && defHealth > 0) {
                     heroHealth = heroHealth - defenderHit;
@@ -121,26 +121,29 @@ $(document).ready(function() {
                     }               
                 };  
 
-            if ((heroHealth) <= 0){
-                alert("You've lost!");
-                $('.container').append("<button class='btn btn-dark'>Reset</button>");
-                $('.btn-danger').off();
-                $('.btn-dark').on("click", function(){
-                    location.reload();
-                });
-            }       
+                //Hero is dead
+                if ((heroHealth) <= 0){
+                    alert("You've lost!");
+                    $('.container').append("<button class='btn btn-dark'>Reset</button>");
+                    $('.btn-danger').off();
+                    $('.btn-dark').on("click", function(){
+                        location.reload();
+                    });
+                }       
+                
+                if ($(".theDefender").length === 0 && ($(".defenders").length) === 0){
+                    alert("You've won!");
+                    $('.container').append("<button class='btn btn-dark'>Reset</button>");
+                    $('.btn-danger').off();
+                    $('.btn-dark').on("click", function(){
+                        location.reload();
+                    });
+                }
 
-            // probably will add an array of enemies so that when this array is empty i can run the you've won prompt
-            // if (defHealth <= 0){
-            //     alert("You've won!");
-            //     $('.container').append("<button class='btn btn-dark'>Reset</button>");
-            //     $('.btn-danger').off();
-            //     $('.btn-dark').on("click", function(){
-            //         location.reload();
-            //     });
-            // }
 
         });
+
+
     });
 
 
