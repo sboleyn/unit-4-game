@@ -7,6 +7,7 @@
         isDefenderChosen = false;
     }
 
+    //Choose a character
     $(".character").on("click", function() {
         //check if a character is already selected then another click will send this guy to defender
         if (isFighterChosen){
@@ -18,14 +19,13 @@
         $(this).addClass("chosenHero");
 
         isFighterChosen = true;
-        
-        $(".character").not(this).appendTo($("#enemies"));
 
-        // $(".character").not(this).css("backgroundColor", "red");        
 
+        //Send enemies to the available to attack area
+        $(".character").not(this).appendTo($("#enemies"));   
         $(".character").not(this).addClass("defenders");  
 
-        $(".defenders").css("backgroundColor", "red");       
+        $(".defenders").css("backgroundColor", "#dc3545");       
         
         $(".defenders").on("click", function() {
 
@@ -53,12 +53,58 @@
             $(".btn").on("click", function(){
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
-                console.log(attack);
-                if (heroHealth > 0) {
+
+                if (heroHealth > 0 && defHealth > 0) {
                     heroHealth = heroHealth - defenderHit;
+                    defHealth = defHealth - attack;
+
                     $('#results').html('<h4>' + 'You attacked ' + $('.theDefender').attr('name') + " for " + attack + " damage.</h3>");
-                    $('#results').append($('.theDefender').attr('name') + " attacked you back for " + defenderHit+ " damange.");
-                    };
+                    $('#results').append('<h4>' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h4>");
+                    
+
+                    //Decides where the defender health is updated
+                    if ($('.theDefender').attr('name')=== "link"){
+                        $("#linkHealth").text('Health: ' + defHealth);
+                    }
+
+                    if ($('.theDefender').attr('name')=== "zelda"){
+                        $("#zeldaHealth").text('Health: ' + defHealth);
+                    }
+                    
+                    if ($('.theDefender').attr('name')=== "goron"){
+                        $("#goronHealth").text('Health: ' + defHealth);
+                    }
+
+                    if ($('.theDefender').attr('name')=== "skullKid"){
+                        $("#skullKidHealth").text('Health: ' + defHealth);
+                    }  
+
+                    //Decides where to put the health text for the hero character
+                    if ($('.chosenHero').attr('name')=== "link"){
+                        $("#linkHealth").text('Health: ' + heroHealth);
+                    }
+
+                    if ($('.chosenHero').attr('name')=== "zelda"){
+                        $("#zeldaHealth").text('Health: ' + heroHealth);
+                    }
+                    
+                    if ($('.chosenHero').attr('name')=== "goron"){
+                        $("#goronHealth").text('Health: ' + heroHealth);
+                    }
+
+                    if ($('.chosenHero').attr('name')=== "skullKid"){
+                        $("#skullKidHealth").text('Health: ' + heroHealth);
+                    }                    
+                    
+                if (heroHealth > 0 && defHealth <= 0){
+                    $(".theDefender").removeClass('theDefender');
+                    $('#defender').empty();
+                    $('#defender').text("Pick a new chibi enemy!");
+                }    
+                };
+
+                // $('.theDefender').removeClass('theDefender'); 
+                   
             })
         })
 

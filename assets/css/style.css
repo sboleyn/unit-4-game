@@ -1,13 +1,14 @@
 body{
     background-image: url(../images/background.jpg);
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    min-height: 950px;
     background-size: cover;
     font-family: 'Chewy', cursive; 
 }
 
 .character{
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
     margin-right: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -15,8 +16,12 @@ body{
 
 .img-thumbnail{
     width: 100px;
-    height: 144px;
+    height: 143px;
     background-color: white;
+    padding: 0px;
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .character:hover{
