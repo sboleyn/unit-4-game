@@ -112,6 +112,11 @@
                         $(".chosenHero").attr("hit", attack + heroHit);
                         // console.log(heroHealth);
                         isDefenderChosen = false;  
+
+                if (heroHealth < 0 && defHealth > 0 || defHealth <0){
+                    alert("You've lost!");
+                    $('.container').append("<button>Reset</button>");
+                }    
                         
                 }    
             };             
