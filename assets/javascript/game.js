@@ -2,10 +2,10 @@
     var isFighterChosen = false;
     var isDefenderChosen = false;
 
-    function initializeGame (){
-        isFighterChosen = false;
-        isDefenderChosen = false;
-    }
+    // function initializeGame (){
+    //     var isFighterChosen = false;
+    //     var isDefenderChosen = false;
+    // };
 
     //Choose a character
     $(".character").on("click", function() {
@@ -26,7 +26,7 @@
         $(".character").not(this).addClass("defenders");  
 
         $(".defenders").css("backgroundColor", "#dc3545");       
-        
+        //choose a defender
         $(".defenders").on("click", function() {
 
             if (isDefenderChosen){
@@ -59,7 +59,7 @@
                     defHealth = defHealth - attack;
 
                     $('#results').html('<h4>' + 'You attacked ' + $('.theDefender').attr('name') + " for " + attack + " damage.</h3>");
-                    $('#results').append('<h4>' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h4>");
+                    $('#results').append('<h5>' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h5>");
                     
 
                     //Decides where the defender health is updated
@@ -96,22 +96,17 @@
                         $("#skullKidHealth").text('Health: ' + heroHealth);
                     }                    
                     
-                if (heroHealth > 0 && defHealth <= 0){
-                    $(".theDefender").removeClass('theDefender');
-                    $('#defender').empty();
-                    $('#defender').text("Pick a new chibi enemy!");
+                    if (heroHealth > 0 && defHealth <= 0){
+                        $(".theDefender").removeClass('theDefender');
+                        $('#defender').empty();
+                        $('#defender').text("Pick a new chibi enemy!").css("color", "#dc3545").css("fontSize", "20px");
+                        
+                        isDefenderChosen = false;  
                 }    
-                };
-
-                // $('.theDefender').removeClass('theDefender'); 
-                   
-            })
-        })
+            };             
+        });
+    });
 
 
 
     });
-
-    
-
-// })
