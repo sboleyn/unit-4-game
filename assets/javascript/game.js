@@ -1,4 +1,7 @@
-// $(document).ready(function() {
+$(document).ready(function() {
+
+    $(document).scrollTop(0);
+
     var isFighterChosen = false;
     var isDefenderChosen = false;
 
@@ -65,8 +68,9 @@
                     heroHealth = heroHealth - defenderHit;
                     defHealth = defHealth - attack;
 
-                    $('#results').html('<h4>' + 'You attacked ' + $('.theDefender').attr('name') + " for " + attack + " damage.</h3>");
-                    $('#results').append('<h5>' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h5>");
+                    $('#results').html("<h4 class='col-sm-4'>" + 'You attacked ' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " for " + attack + " damage.</h3>");
+
+                    $('#results').append("<h5 class='col-sm-4'>" + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h5>");
                     
 
                     //Decides where the defender health is updated
@@ -112,17 +116,21 @@
                         $(".chosenHero").attr("hit", attack + heroHit);
                         // console.log(heroHealth);
                         isDefenderChosen = false;  
+                    }               
+                };  
+            if ((heroHealth) <= 0){
+                alert("You've lost!");
+                $('.container').append("<button class='btn btn-dark'>Reset</button>");
+                $('.btn-dark').on("click", function(){
+                    location.reload();
+                });
+            }       
 
-                if (heroHealth < 0 && defHealth > 0 || defHealth <0){
-                    alert("You've lost!");
-                    $('.container').append("<button>Reset</button>");
-                }    
-                        
-                }    
-            };             
         });
     });
 
 
 
-    });
+});
+
+});
