@@ -37,6 +37,8 @@
             
             isDefenderChosen = true;
             
+            $('#defender').empty();
+
             $(this).appendTo($("#defender"));
 
             $(this).removeClass("defenders");
@@ -49,6 +51,11 @@
             var attack = 0;
             var heroHit = $('.chosenHero').attr('hit');
             var defenderHit = $('.theDefender').attr('hit');
+
+            // function buttonClick() {
+                
+            // }
+
 
             $(".btn").on("click", function(){
                 heroHit = parseInt(heroHit);
@@ -101,7 +108,11 @@
                         $('#defender').empty();
                         $('#defender').text("Pick a new chibi enemy!").css("color", "#dc3545").css("fontSize", "20px");
                         
+                        $(".chosenHero").attr("value", heroHealth);
+                        $(".chosenHero").attr("hit", attack + heroHit);
+                        // console.log(heroHealth);
                         isDefenderChosen = false;  
+                        
                 }    
             };             
         });
