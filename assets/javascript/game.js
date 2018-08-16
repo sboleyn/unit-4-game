@@ -64,6 +64,8 @@ $(document).ready(function() {
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
 
+                //Hero and defender
+
                 if (heroHealth > 0 && defHealth > 0) {
                     heroHealth = heroHealth - defenderHit;
                     defHealth = defHealth - attack;
@@ -118,13 +120,25 @@ $(document).ready(function() {
                         isDefenderChosen = false;  
                     }               
                 };  
+
             if ((heroHealth) <= 0){
                 alert("You've lost!");
                 $('.container').append("<button class='btn btn-dark'>Reset</button>");
+                $('.btn-danger').off();
                 $('.btn-dark').on("click", function(){
                     location.reload();
                 });
             }       
+
+            // probably will add an array of enemies so that when this array is empty i can run the you've won prompt
+            // if (defHealth <= 0){
+            //     alert("You've won!");
+            //     $('.container').append("<button class='btn btn-dark'>Reset</button>");
+            //     $('.btn-danger').off();
+            //     $('.btn-dark').on("click", function(){
+            //         location.reload();
+            //     });
+            // }
 
         });
     });
