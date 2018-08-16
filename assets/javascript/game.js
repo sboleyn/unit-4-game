@@ -70,9 +70,9 @@ $(document).ready(function() {
                     heroHealth = heroHealth - defenderHit;
                     defHealth = defHealth - attack;
 
-                    $('#results').html("<h4 class='col-sm-4'>" + 'You attacked ' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " for " + attack + " damage.</h3>");
+                    $('#results').html("<h4 class='col-sm-4 clear'>" + 'You attacked ' + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " for " + attack + " damage.</h3>");
 
-                    $('#results').append("<h5 class='col-sm-4'>" + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h5>");
+                    $('#results').append("<h5 class='col-sm-4 clear'>" + $('.theDefender').attr('name')[0].toUpperCase() + $('.theDefender').attr('name').substr(1) + " attacked you back for " + defenderHit+ " damage.</h5>");
                     
 
                     //Decides where the defender health is updated
@@ -134,6 +134,9 @@ $(document).ready(function() {
                 if ($(".theDefender").length === 0 && ($(".defenders").length) === 0){
                     alert("You've won!");
                     $('.container').append("<button class='btn btn-dark'>Reset</button>");
+                    $('#defender').text("");
+                    $('#results').text("Reset to start over.");
+                    $('.clear').text("");
                     $('.btn-danger').off();
                     $('.btn-dark').on("click", function(){
                         location.reload();
