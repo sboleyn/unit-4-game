@@ -22,7 +22,7 @@ $(document).ready(function() {
         $(this).addClass("chosenHero");
 
         isFighterChosen = true;
-
+        var attack = 0;
 
         //Send enemies to the available to attack area
         $(".character").not(this).appendTo($("#enemies"));   
@@ -51,7 +51,7 @@ $(document).ready(function() {
 
             var defHealth = $('.theDefender').val();
             var heroHealth = $('.chosenHero').val();
-            var attack = 0;
+            
             var heroHit = $('.chosenHero').attr('hit');
             var defenderHit = $('.theDefender').attr('hit');
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
                 
             // }
 
-
+            $(".btn").off("click");
             $(".btn").on("click", function(){
                 heroHit = parseInt(heroHit);
                 attack += heroHit;
@@ -115,9 +115,10 @@ $(document).ready(function() {
                         $('#defender').text("Pick a new chibi enemy!").css("color", "#dc3545").css("fontSize", "20px");
                         
                         $(".chosenHero").attr("value", heroHealth);
-                        $(".chosenHero").attr("hit", attack + heroHit);
+                        // $(".chosenHero").attr("hit", attack + heroHit);
                         // console.log(heroHealth);
                         isDefenderChosen = false;  
+                        
                     }               
                 };  
 
