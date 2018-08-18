@@ -4,11 +4,7 @@ $(document).ready(function() {
 
     var isFighterChosen = false;
     var isDefenderChosen = false;
-
-    // function initializeGame (){
-    //     var isFighterChosen = false;
-    //     var isDefenderChosen = false;
-    // };
+    var canAttack = false;
 
     //Choose a character
     $(".character").on("click", function() {
@@ -52,21 +48,22 @@ $(document).ready(function() {
             var defHealth = $('.theDefender').val();
             var heroHealth = $('.chosenHero').val();
             
-            var heroHit = $('.chosenHero').attr('hit');
+            var heroHit = parseInt($('.chosenHero').attr('hit'));
             var defenderHit = $('.theDefender').attr('hit');
 
-            // function buttonClick() {
-                
-            // }
-
+            canAttack = true;
             $(".btn").off("click");
             $(".btn").on("click", function(){
-                heroHit = parseInt(heroHit);
+                if (!canAttack){
+                    return false
+                };
+
                 attack += heroHit;
 
                 //Hero and defender are alive, there are defenders
 
                 if (heroHealth > 0 && defHealth > 0) {
+                    // canAttack = true;
                     heroHealth = heroHealth - defenderHit;
                     defHealth = defHealth - attack;
 
@@ -115,8 +112,7 @@ $(document).ready(function() {
                         $('#defender').text("Pick a new chibi enemy!").css("color", "#dc3545").css("fontSize", "20px");
                         
                         $(".chosenHero").attr("value", heroHealth);
-                        // $(".chosenHero").attr("hit", attack + heroHit);
-                        // console.log(heroHealth);
+                        canAttack = false;
                         isDefenderChosen = false;  
                         
                     }               
@@ -131,7 +127,8 @@ $(document).ready(function() {
                         location.reload();
                     });
                 }       
-                
+
+                //Hero is alive, all defendants are dead                
                 if ($(".theDefender").length === 0 && ($(".defenders").length) === 0){
                     alert("You've won!");
                     $('.container').append("<button class='btn btn-dark'>Reset</button>");
