@@ -123,6 +123,7 @@ $(document).ready(function() {
                     alert("You've lost!");
                     $('.container').append("<button class='btn btn-dark'>Reset</button>");
                     $('.btn-danger').off();
+                    $('#defender').empty();
                     $('.btn-dark').on("click", function(){
                         location.reload();
                     });
